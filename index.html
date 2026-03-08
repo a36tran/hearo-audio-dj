@@ -21,7 +21,39 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
-  .subtitle { color: #888; font-size: 14px; margin-bottom: 32px; }
+  .subtitle { color: #888; font-size: 14px; margin-bottom: 24px; }
+  .tabs {
+    display: flex;
+    gap: 0;
+    margin-bottom: 24px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #1e1e2e;
+  }
+  .tab {
+    flex: 1;
+    padding: 14px 20px;
+    background: #13131a;
+    border: none;
+    color: #888;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: center;
+  }
+  .tab:not(:last-child) { border-right: 1px solid #1e1e2e; }
+  .tab:hover { background: #1a1a28; color: #ccc; }
+  .tab.active {
+    background: #1a1a2e;
+    color: #e0e0e8;
+    box-shadow: inset 0 -3px 0 #3b82f6;
+  }
+  .tab-icon { font-size: 18px; display: block; margin-bottom: 4px; }
+  .tab-desc { font-size: 11px; color: #666; font-weight: 400; }
+  .tab.active .tab-desc { color: #888; }
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
   .venue {
     background: #13131a;
     border: 1px solid #1e1e2e;
@@ -162,6 +194,20 @@
 <h1>Hearo Audio DJ</h1>
 <p class="subtitle">AI-powered hearing optimization — click play to compare before/after</p>
 
+<div class="tabs">
+  <button class="tab active" onclick="switchTab('with_ha')">
+    <span class="tab-icon">&#x1F9BB;</span>
+    With Hearing Aid
+    <div class="tab-desc">Oticon Intent &middot; Setting 2</div>
+  </button>
+  <button class="tab" onclick="switchTab('no_ha')">
+    <span class="tab-icon">&#x1F442;</span>
+    No Hearing Aids
+    <div class="tab-desc">Unaided hearing loss</div>
+  </button>
+</div>
+
+<div id="tab-with_ha" class="tab-content active">
 
     <div class="venue">
         <div class="venue-header">
@@ -358,18 +404,231 @@
         </div></div>
         
     </div>
+</div>
+
+<div id="tab-no_ha" class="tab-content">
+
+    <div class="venue">
+        <div class="venue-header">
+            <span class="venue-name">Cafe</span>
+        </div>
+        <div class="metrics">
+            <div class="metric">
+                <div class="metric-label">SNR</div>
+                <div class="metric-value">11.7 dB</div>
+                <div class="metric-delta negative">-1.9 from 13.6</div>
+            </div>
+            <div class="metric">
+                <div class="metric-label">Noise Floor</div>
+                <div class="metric-value">-15.3 dB</div>
+                <div class="metric-delta negative">+11.0 from -26.3</div>
+            </div>
+            <div class="metric">
+                <div class="metric-label">Dynamic Range</div>
+                <div class="metric-value">6.5 dB</div>
+                <div class="metric-delta ">-4.7 from 11.2</div>
+            </div></div>
+        <div class='speakers'><span class="speaker-tag user">alex (user, 98%)</span><span class="speaker-tag partner">lucy (partner, 95%)</span></div>
+        <div class="ab-section">
+            <div class="ab-header">Quick A/B Compare</div>
+            <button class="ab-btn before" onclick="playAB('cafe','before')">Play Before</button>
+            <button class="ab-btn after" onclick="playAB('cafe','after')">Play After</button>
+            <button class="ab-btn stop" onclick="stopAB()">Stop</button>
+        </div>
+        <div class="tracks" style="margin-top:16px">
+        <div class="track ">
+            <span class="track-tag tag-raw">Raw</span>
+            <span class="track-label">Original Recording</span>
+            <audio controls preload="none" src="results_no_ha/cafe/00_original.mp3"></audio>
+        </div>
+        <div class="track ">
+            <span class="track-tag tag-before">Before</span>
+            <span class="track-label">What User Hears (No DSP)</span>
+            <audio controls preload="none" src="results_no_ha/cafe/01_user_hears_baseline.mp3"></audio>
+        </div>
+        <div class="track ">
+            <span class="track-tag tag-round">Round</span>
+            <span class="track-label">Round 1</span>
+            <audio controls preload="none" src="results_no_ha/cafe/round_01_user_hears.mp3"></audio>
+        </div>
+        <div class="track ">
+            <span class="track-tag tag-round">Round</span>
+            <span class="track-label">Round 2</span>
+            <audio controls preload="none" src="results_no_ha/cafe/round_02_user_hears.mp3"></audio>
+        </div>
+        <div class="track ">
+            <span class="track-tag tag-round">Round</span>
+            <span class="track-label">Round 3</span>
+            <audio controls preload="none" src="results_no_ha/cafe/round_03_user_hears.mp3"></audio>
+        </div>
+        <div class="track highlight">
+            <span class="track-tag tag-after">After</span>
+            <span class="track-label">Final — What User Hears (AI Optimized)</span>
+            <audio controls preload="none" src="results_no_ha/cafe/final_user_hears.mp3"></audio>
+        </div>
+        <div class="track ">
+            <span class="track-tag tag-raw">Raw</span>
+            <span class="track-label">AI Optimized (No Audiogram Sim)</span>
+            <audio controls preload="none" src="results_no_ha/cafe/final_dsp_only.mp3"></audio>
+        </div></div>
+        
+    </div>
+    <div class="venue">
+        <div class="venue-header">
+            <span class="venue-name">Dessert Shop</span>
+        </div>
+        <div class="metrics">
+            <div class="metric">
+                <div class="metric-label">SNR</div>
+                <div class="metric-value">11.4 dB</div>
+                <div class="metric-delta ">+0.1 from 11.3</div>
+            </div>
+            <div class="metric">
+                <div class="metric-label">Noise Floor</div>
+                <div class="metric-value">-3.7 dB</div>
+                <div class="metric-delta negative">+13.9 from -17.6</div>
+            </div>
+            <div class="metric">
+                <div class="metric-label">Dynamic Range</div>
+                <div class="metric-value">7.8 dB</div>
+                <div class="metric-delta ">-2.9 from 10.7</div>
+            </div></div>
+        <div class='speakers'><span class="speaker-tag user">alex (user, 98%)</span><span class="speaker-tag partner">lucy (partner, 95%)</span><span class="speaker-tag stranger">stranger (stranger, 85%)</span></div>
+        <div class="ab-section">
+            <div class="ab-header">Quick A/B Compare</div>
+            <button class="ab-btn before" onclick="playAB('dessert_shop','before')">Play Before</button>
+            <button class="ab-btn after" onclick="playAB('dessert_shop','after')">Play After</button>
+            <button class="ab-btn stop" onclick="stopAB()">Stop</button>
+        </div>
+        <div class="tracks" style="margin-top:16px">
+        <div class="track ">
+            <span class="track-tag tag-raw">Raw</span>
+            <span class="track-label">Original Recording</span>
+            <audio controls preload="none" src="results_no_ha/dessert_shop/00_original.mp3"></audio>
+        </div>
+        <div class="track ">
+            <span class="track-tag tag-before">Before</span>
+            <span class="track-label">What User Hears (No DSP)</span>
+            <audio controls preload="none" src="results_no_ha/dessert_shop/01_user_hears_baseline.mp3"></audio>
+        </div>
+        <div class="track ">
+            <span class="track-tag tag-round">Round</span>
+            <span class="track-label">Round 1</span>
+            <audio controls preload="none" src="results_no_ha/dessert_shop/round_01_user_hears.mp3"></audio>
+        </div>
+        <div class="track ">
+            <span class="track-tag tag-round">Round</span>
+            <span class="track-label">Round 2</span>
+            <audio controls preload="none" src="results_no_ha/dessert_shop/round_02_user_hears.mp3"></audio>
+        </div>
+        <div class="track ">
+            <span class="track-tag tag-round">Round</span>
+            <span class="track-label">Round 3</span>
+            <audio controls preload="none" src="results_no_ha/dessert_shop/round_03_user_hears.mp3"></audio>
+        </div>
+        <div class="track highlight">
+            <span class="track-tag tag-after">After</span>
+            <span class="track-label">Final — What User Hears (AI Optimized)</span>
+            <audio controls preload="none" src="results_no_ha/dessert_shop/final_user_hears.mp3"></audio>
+        </div>
+        <div class="track ">
+            <span class="track-tag tag-raw">Raw</span>
+            <span class="track-label">AI Optimized (No Audiogram Sim)</span>
+            <audio controls preload="none" src="results_no_ha/dessert_shop/final_dsp_only.mp3"></audio>
+        </div></div>
+        
+    </div>
+    <div class="venue">
+        <div class="venue-header">
+            <span class="venue-name">Korean Restaurant</span>
+        </div>
+        <div class="metrics">
+            <div class="metric">
+                <div class="metric-label">SNR</div>
+                <div class="metric-value">15.0 dB</div>
+                <div class="metric-delta negative">-1.4 from 16.4</div>
+            </div>
+            <div class="metric">
+                <div class="metric-label">Noise Floor</div>
+                <div class="metric-value">-9.9 dB</div>
+                <div class="metric-delta negative">+14.7 from -24.6</div>
+            </div>
+            <div class="metric">
+                <div class="metric-label">Dynamic Range</div>
+                <div class="metric-value">10.9 dB</div>
+                <div class="metric-delta ">-5.9 from 16.8</div>
+            </div></div>
+        <div class='speakers'><span class="speaker-tag user">alex (user, 98%)</span><span class="speaker-tag partner">lucy (partner, 95%)</span></div>
+        <div class="ab-section">
+            <div class="ab-header">Quick A/B Compare</div>
+            <button class="ab-btn before" onclick="playAB('korean_restaurant','before')">Play Before</button>
+            <button class="ab-btn after" onclick="playAB('korean_restaurant','after')">Play After</button>
+            <button class="ab-btn stop" onclick="stopAB()">Stop</button>
+        </div>
+        <div class="tracks" style="margin-top:16px">
+        <div class="track ">
+            <span class="track-tag tag-raw">Raw</span>
+            <span class="track-label">Original Recording</span>
+            <audio controls preload="none" src="results_no_ha/korean_restaurant/00_original.mp3"></audio>
+        </div>
+        <div class="track ">
+            <span class="track-tag tag-before">Before</span>
+            <span class="track-label">What User Hears (No DSP)</span>
+            <audio controls preload="none" src="results_no_ha/korean_restaurant/01_user_hears_baseline.mp3"></audio>
+        </div>
+        <div class="track ">
+            <span class="track-tag tag-round">Round</span>
+            <span class="track-label">Round 1</span>
+            <audio controls preload="none" src="results_no_ha/korean_restaurant/round_01_user_hears.mp3"></audio>
+        </div>
+        <div class="track ">
+            <span class="track-tag tag-round">Round</span>
+            <span class="track-label">Round 2</span>
+            <audio controls preload="none" src="results_no_ha/korean_restaurant/round_02_user_hears.mp3"></audio>
+        </div>
+        <div class="track ">
+            <span class="track-tag tag-round">Round</span>
+            <span class="track-label">Round 3</span>
+            <audio controls preload="none" src="results_no_ha/korean_restaurant/round_03_user_hears.mp3"></audio>
+        </div>
+        <div class="track highlight">
+            <span class="track-tag tag-after">After</span>
+            <span class="track-label">Final — What User Hears (AI Optimized)</span>
+            <audio controls preload="none" src="results_no_ha/korean_restaurant/final_user_hears.mp3"></audio>
+        </div>
+        <div class="track ">
+            <span class="track-tag tag-raw">Raw</span>
+            <span class="track-label">AI Optimized (No Audiogram Sim)</span>
+            <audio controls preload="none" src="results_no_ha/korean_restaurant/final_dsp_only.mp3"></audio>
+        </div></div>
+        
+    </div>
+</div>
 
 <script>
+function switchTab(tabId) {
+  // Stop any playing audio
+  stopAB();
+  document.querySelectorAll('audio').forEach(a => a.pause());
+  // Switch tabs
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+  document.getElementById('tab-' + tabId).classList.add('active');
+  event.currentTarget.classList.add('active');
+}
 // A/B quick-compare functionality
 let currentAudio = null;
 function playAB(venueId, type) {
   if (currentAudio) { currentAudio.pause(); currentAudio = null; }
   document.querySelectorAll('.ab-btn').forEach(b => b.classList.remove('playing'));
   const fileMap = {
-    before: '01_user_hears_baseline.wav',
-    after: 'final_user_hears.wav',
+    before: '01_user_hears_baseline.mp3',
+    after: 'final_user_hears.mp3',
   };
-  const path = '/results/' + venueId + '/' + fileMap[type];
+  // Find which tab is active to get the right path
+  const activeTab = document.querySelector('.tab-content.active');
+  const prefix = activeTab.id === 'tab-no_ha' ? 'results_no_ha/' : 'results/';
+  const path = prefix + venueId + '/' + fileMap[type];
   currentAudio = new Audio(path);
   currentAudio.play();
   event.target.classList.add('playing');
