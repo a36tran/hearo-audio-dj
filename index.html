@@ -134,8 +134,13 @@
   }
   .tag-before { background: #2a1a1a; color: #f87171; }
   .tag-after { background: #1a2a1a; color: #6ee7b7; }
+  .tag-input { background: #1a2a2a; color: #22d3ee; }
   .tag-round { background: #1a1a2a; color: #818cf8; }
   .tag-raw { background: #2a2a1a; color: #fbbf24; }
+  .track.highlight-input {
+    border: 1px solid #22d3ee;
+    background: #0f1a2a;
+  }
   audio {
     flex: 1;
     height: 36px;
@@ -239,12 +244,12 @@
         <div class="tracks" style="margin-top:16px">
         <div class="track ">
             <span class="track-tag tag-raw">Raw</span>
-            <span class="track-label">Original Recording</span>
+            <span class="track-label">Original (Normal Hearing)</span>
             <audio controls preload="none" src="results/cafe/00_original.mp3"></audio>
         </div>
         <div class="track ">
             <span class="track-tag tag-before">Before</span>
-            <span class="track-label">What User Hears (No DSP)</span>
+            <span class="track-label">Baseline — What User Hears Now (HA, No AI)</span>
             <audio controls preload="none" src="results/cafe/01_user_hears_baseline.mp3"></audio>
         </div>
         <div class="track ">
@@ -262,15 +267,15 @@
             <span class="track-label">Round 3</span>
             <audio controls preload="none" src="results/cafe/round_03_user_hears.mp3"></audio>
         </div>
+        <div class="track highlight-input">
+            <span class="track-tag tag-input">Input</span>
+            <span class="track-label">Hearo AI Output — Fed to Hearing Aid</span>
+            <audio controls preload="none" src="results/cafe/final_dsp_only.mp3"></audio>
+        </div>
         <div class="track highlight">
             <span class="track-tag tag-after">After</span>
-            <span class="track-label">Final — What User Hears (AI Optimized)</span>
+            <span class="track-label">After Hearing Aid — What User Actually Hears</span>
             <audio controls preload="none" src="results/cafe/final_user_hears.mp3"></audio>
-        </div>
-        <div class="track ">
-            <span class="track-tag tag-raw">Raw</span>
-            <span class="track-label">AI Optimized (No Audiogram Sim)</span>
-            <audio controls preload="none" src="results/cafe/final_dsp_only.mp3"></audio>
         </div></div>
         
     </div>
@@ -304,12 +309,12 @@
         <div class="tracks" style="margin-top:16px">
         <div class="track ">
             <span class="track-tag tag-raw">Raw</span>
-            <span class="track-label">Original Recording</span>
+            <span class="track-label">Original (Normal Hearing)</span>
             <audio controls preload="none" src="results/dessert_shop/00_original.mp3"></audio>
         </div>
         <div class="track ">
             <span class="track-tag tag-before">Before</span>
-            <span class="track-label">What User Hears (No DSP)</span>
+            <span class="track-label">Baseline — What User Hears Now (HA, No AI)</span>
             <audio controls preload="none" src="results/dessert_shop/01_user_hears_baseline.mp3"></audio>
         </div>
         <div class="track ">
@@ -327,15 +332,15 @@
             <span class="track-label">Round 3</span>
             <audio controls preload="none" src="results/dessert_shop/round_03_user_hears.mp3"></audio>
         </div>
+        <div class="track highlight-input">
+            <span class="track-tag tag-input">Input</span>
+            <span class="track-label">Hearo AI Output — Fed to Hearing Aid</span>
+            <audio controls preload="none" src="results/dessert_shop/final_dsp_only.mp3"></audio>
+        </div>
         <div class="track highlight">
             <span class="track-tag tag-after">After</span>
-            <span class="track-label">Final — What User Hears (AI Optimized)</span>
+            <span class="track-label">After Hearing Aid — What User Actually Hears</span>
             <audio controls preload="none" src="results/dessert_shop/final_user_hears.mp3"></audio>
-        </div>
-        <div class="track ">
-            <span class="track-tag tag-raw">Raw</span>
-            <span class="track-label">AI Optimized (No Audiogram Sim)</span>
-            <audio controls preload="none" src="results/dessert_shop/final_dsp_only.mp3"></audio>
         </div></div>
         
     </div>
@@ -369,12 +374,12 @@
         <div class="tracks" style="margin-top:16px">
         <div class="track ">
             <span class="track-tag tag-raw">Raw</span>
-            <span class="track-label">Original Recording</span>
+            <span class="track-label">Original (Normal Hearing)</span>
             <audio controls preload="none" src="results/korean_restaurant/00_original.mp3"></audio>
         </div>
         <div class="track ">
             <span class="track-tag tag-before">Before</span>
-            <span class="track-label">What User Hears (No DSP)</span>
+            <span class="track-label">Baseline — What User Hears Now (HA, No AI)</span>
             <audio controls preload="none" src="results/korean_restaurant/01_user_hears_baseline.mp3"></audio>
         </div>
         <div class="track ">
@@ -392,15 +397,15 @@
             <span class="track-label">Round 3</span>
             <audio controls preload="none" src="results/korean_restaurant/round_03_user_hears.mp3"></audio>
         </div>
+        <div class="track highlight-input">
+            <span class="track-tag tag-input">Input</span>
+            <span class="track-label">Hearo AI Output — Fed to Hearing Aid</span>
+            <audio controls preload="none" src="results/korean_restaurant/final_dsp_only.mp3"></audio>
+        </div>
         <div class="track highlight">
             <span class="track-tag tag-after">After</span>
-            <span class="track-label">Final — What User Hears (AI Optimized)</span>
+            <span class="track-label">After Hearing Aid — What User Actually Hears</span>
             <audio controls preload="none" src="results/korean_restaurant/final_user_hears.mp3"></audio>
-        </div>
-        <div class="track ">
-            <span class="track-tag tag-raw">Raw</span>
-            <span class="track-label">AI Optimized (No Audiogram Sim)</span>
-            <audio controls preload="none" src="results/korean_restaurant/final_dsp_only.mp3"></audio>
         </div></div>
         
     </div>
@@ -438,12 +443,12 @@
         <div class="tracks" style="margin-top:16px">
         <div class="track ">
             <span class="track-tag tag-raw">Raw</span>
-            <span class="track-label">Original Recording</span>
+            <span class="track-label">Original (Normal Hearing)</span>
             <audio controls preload="none" src="results_no_ha/cafe/00_original.mp3"></audio>
         </div>
         <div class="track ">
             <span class="track-tag tag-before">Before</span>
-            <span class="track-label">What User Hears (No DSP)</span>
+            <span class="track-label">Baseline — Unaided Hearing Loss (No AI)</span>
             <audio controls preload="none" src="results_no_ha/cafe/01_user_hears_baseline.mp3"></audio>
         </div>
         <div class="track ">
@@ -461,15 +466,15 @@
             <span class="track-label">Round 3</span>
             <audio controls preload="none" src="results_no_ha/cafe/round_03_user_hears.mp3"></audio>
         </div>
+        <div class="track highlight-input">
+            <span class="track-tag tag-input">Input</span>
+            <span class="track-label">Hearo AI Output — Before Hearing Loss</span>
+            <audio controls preload="none" src="results_no_ha/cafe/final_dsp_only.mp3"></audio>
+        </div>
         <div class="track highlight">
             <span class="track-tag tag-after">After</span>
-            <span class="track-label">Final — What User Hears (AI Optimized)</span>
+            <span class="track-label">After Hearing Loss — What User Actually Hears</span>
             <audio controls preload="none" src="results_no_ha/cafe/final_user_hears.mp3"></audio>
-        </div>
-        <div class="track ">
-            <span class="track-tag tag-raw">Raw</span>
-            <span class="track-label">AI Optimized (No Audiogram Sim)</span>
-            <audio controls preload="none" src="results_no_ha/cafe/final_dsp_only.mp3"></audio>
         </div></div>
         
     </div>
@@ -503,12 +508,12 @@
         <div class="tracks" style="margin-top:16px">
         <div class="track ">
             <span class="track-tag tag-raw">Raw</span>
-            <span class="track-label">Original Recording</span>
+            <span class="track-label">Original (Normal Hearing)</span>
             <audio controls preload="none" src="results_no_ha/dessert_shop/00_original.mp3"></audio>
         </div>
         <div class="track ">
             <span class="track-tag tag-before">Before</span>
-            <span class="track-label">What User Hears (No DSP)</span>
+            <span class="track-label">Baseline — Unaided Hearing Loss (No AI)</span>
             <audio controls preload="none" src="results_no_ha/dessert_shop/01_user_hears_baseline.mp3"></audio>
         </div>
         <div class="track ">
@@ -526,15 +531,15 @@
             <span class="track-label">Round 3</span>
             <audio controls preload="none" src="results_no_ha/dessert_shop/round_03_user_hears.mp3"></audio>
         </div>
+        <div class="track highlight-input">
+            <span class="track-tag tag-input">Input</span>
+            <span class="track-label">Hearo AI Output — Before Hearing Loss</span>
+            <audio controls preload="none" src="results_no_ha/dessert_shop/final_dsp_only.mp3"></audio>
+        </div>
         <div class="track highlight">
             <span class="track-tag tag-after">After</span>
-            <span class="track-label">Final — What User Hears (AI Optimized)</span>
+            <span class="track-label">After Hearing Loss — What User Actually Hears</span>
             <audio controls preload="none" src="results_no_ha/dessert_shop/final_user_hears.mp3"></audio>
-        </div>
-        <div class="track ">
-            <span class="track-tag tag-raw">Raw</span>
-            <span class="track-label">AI Optimized (No Audiogram Sim)</span>
-            <audio controls preload="none" src="results_no_ha/dessert_shop/final_dsp_only.mp3"></audio>
         </div></div>
         
     </div>
@@ -568,12 +573,12 @@
         <div class="tracks" style="margin-top:16px">
         <div class="track ">
             <span class="track-tag tag-raw">Raw</span>
-            <span class="track-label">Original Recording</span>
+            <span class="track-label">Original (Normal Hearing)</span>
             <audio controls preload="none" src="results_no_ha/korean_restaurant/00_original.mp3"></audio>
         </div>
         <div class="track ">
             <span class="track-tag tag-before">Before</span>
-            <span class="track-label">What User Hears (No DSP)</span>
+            <span class="track-label">Baseline — Unaided Hearing Loss (No AI)</span>
             <audio controls preload="none" src="results_no_ha/korean_restaurant/01_user_hears_baseline.mp3"></audio>
         </div>
         <div class="track ">
@@ -591,15 +596,15 @@
             <span class="track-label">Round 3</span>
             <audio controls preload="none" src="results_no_ha/korean_restaurant/round_03_user_hears.mp3"></audio>
         </div>
+        <div class="track highlight-input">
+            <span class="track-tag tag-input">Input</span>
+            <span class="track-label">Hearo AI Output — Before Hearing Loss</span>
+            <audio controls preload="none" src="results_no_ha/korean_restaurant/final_dsp_only.mp3"></audio>
+        </div>
         <div class="track highlight">
             <span class="track-tag tag-after">After</span>
-            <span class="track-label">Final — What User Hears (AI Optimized)</span>
+            <span class="track-label">After Hearing Loss — What User Actually Hears</span>
             <audio controls preload="none" src="results_no_ha/korean_restaurant/final_user_hears.mp3"></audio>
-        </div>
-        <div class="track ">
-            <span class="track-tag tag-raw">Raw</span>
-            <span class="track-label">AI Optimized (No Audiogram Sim)</span>
-            <audio controls preload="none" src="results_no_ha/korean_restaurant/final_dsp_only.mp3"></audio>
         </div></div>
         
     </div>
